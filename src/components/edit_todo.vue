@@ -1,6 +1,7 @@
 <script setup>
 import { ref, defineProps } from "vue";
 import "./styles/modal.css"
+import X from "../assets/icons/x_mark.vue";
 
 let { todo, todos, isOpen, toggle } = defineProps(["todo", "todos", "isOpen", "toggle"])
 
@@ -31,7 +32,9 @@ const updateHandler = () => {
         <div :class="{ modal_dialog: true, modal_dialog_visible: isOpen }">
             <div class="modal_header">
                 <h4>Edit Todo</h4>
-                <span style="cursor: pointer;" @click="toggle">x</span>
+                <span style="cursor: pointer;" @click="toggle">
+                    <X />
+                </span>
             </div>
             <div class="modal_body">
                 <div class="input_container">
@@ -56,7 +59,7 @@ const updateHandler = () => {
                 </div>
             </div>
             <div class="modal_footer">
-                <button @click="updateHandler">Update Todo</button>
+                <button :disabled="!title || !date || !priority || !time" @click="updateHandler">Update Todo</button>
             </div>
         </div>
     </div>

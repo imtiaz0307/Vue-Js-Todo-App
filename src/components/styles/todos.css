@@ -43,6 +43,9 @@
 .todo_top h3 {
     font-size: 1rem;
     font-weight: 700;
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .top_menu {

@@ -1,13 +1,14 @@
 <script setup>
 import { ref, defineProps } from "vue";
 import "./styles/modal.css"
+import X from "../assets/icons/x_mark.vue";
 
 let { todos, isOpen, toggle } = defineProps(["todos", "isOpen", "toggle"])
 
-const title = ref()
-const date = ref()
-const time = ref()
-const priority = ref()
+const title = ref("")
+const date = ref("")
+const time = ref("")
+const priority = ref("")
 
 const AddTodoHandler = () => {
     const todo = {
@@ -34,7 +35,9 @@ const AddTodoHandler = () => {
         <div :class="{ modal_dialog: true, modal_dialog_visible: isOpen }">
             <div class="modal_header">
                 <h4>Add New Todo</h4>
-                <span style="cursor: pointer;" @click="toggle">x</span>
+                <span style="cursor: pointer;" @click="toggle">
+                    <X />
+                </span>
             </div>
             <div class="modal_body">
                 <div class="input_container">
@@ -59,7 +62,7 @@ const AddTodoHandler = () => {
                 </div>
             </div>
             <div class="modal_footer">
-                <button @click="AddTodoHandler">Add Todo</button>
+                <button :disabled="!title || !date || !priority || !time" @click="AddTodoHandler">Add Todo</button>
             </div>
         </div>
     </div>
