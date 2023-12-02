@@ -1,6 +1,6 @@
 <script setup>
-import MoreHorizontal from "../assets/icons/MoreHorizontal.vue"
-import Clock from "../assets/icons/Clock.vue"
+import MoreHorizontal from "../assets/icons/morehorizontal.vue"
+import Clock from "../assets/icons/clock.vue"
 import { defineProps, ref } from "vue";
 import "./styles/todos.css"
 import EditTodo from "./edit_todo.vue"
