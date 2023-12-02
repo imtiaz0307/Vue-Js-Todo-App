@@ -1,6 +1,6 @@
 <script setup>
-import Navbar from './components/Navbar.vue';
-import Todos from './components/Todos.vue';
+import Navbar from './components/navbar.vue';
+import Todos from './components/todos.vue';
 
 </script>
 
