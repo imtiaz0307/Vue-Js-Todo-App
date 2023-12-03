@@ -1,11 +1,5 @@
 <script setup>
-import { ref, defineProps } from 'vue';
-
-const navlinks = ref([
-    { name: "Home", link: "/" },
-    { name: "Todos", link: "/todos" },
-    { name: "About", link: "/about" }
-])
+import { defineProps } from 'vue';
 
 const { toggleTheme, isDark } = defineProps(["toggleTheme", "isDark"])
 
@@ -14,10 +8,7 @@ const { toggleTheme, isDark } = defineProps(["toggleTheme", "isDark"])
 <template>
     <nav class="navbar">
         <div class="logo">Todoist</div>
-        <ul class="nav__links">
-            <li v-for="navlink in navlinks" :key="navlink.name">
-                <a :href="navlink.link">{{ navlink.name }}</a>
-            </li>
+        <ul class="nav__links">->
             <button @click="toggleTheme">
                 {{ isDark ? "Switch To Light" : "Switch To Dark" }}
             </button>
@@ -32,6 +23,7 @@ const { toggleTheme, isDark } = defineProps(["toggleTheme", "isDark"])
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 5px var(--box-shadow-color);
+    background-color: var(--color-bg);
 }
 
 .logo {
@@ -64,6 +56,14 @@ const { toggleTheme, isDark } = defineProps(["toggleTheme", "isDark"])
 
 @media screen and (max-width:450px) {
     .navbar {
+        padding: 1rem;
+    }
+
+    .nav__links button {
+        widows: 150px;
+    }
+
+    /* .navbar {
         flex-direction: column;
         align-items: center;
         gap: 2rem;
@@ -75,6 +75,6 @@ const { toggleTheme, isDark } = defineProps(["toggleTheme", "isDark"])
 
     .nav__links button {
         display: none;
-    }
+    } */
 }
 </style>
