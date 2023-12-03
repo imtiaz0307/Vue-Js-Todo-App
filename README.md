@@ -1,35 +1,38 @@
-# vue-learning
+# Vue Todo App with CRUD Operations and Dark/Light Theme
 
-This template should help get you started developing with Vue 3 in Vite.
+Welcome to my first Vue.js project! This simple todo app was created for learning purposes, and it incorporates basic CRUD (Create, Read, Update, Delete) operations along with a toggleable dark/light theme.
 
-## Recommended IDE Setup
+## Project Overview
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+This project is a single-page application (SPA) built with Vue.js. As a MERN stack developer, I wanted to explore the frontend capabilities of Vue.js and its ease of integration with CRUD operations.
 
-## Customize configuration
+### Features
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. **Create**: Add new tasks to your todo list.
+2. **Read**: View your existing tasks and their details.
+3. **Update**: Edit task details, such as the task name or completion status.
+4. **Delete**: Remove tasks from your todo list.
+5. **Dark/Light Theme**: Toggle between a dark and light theme for a personalized experience.
 
-## Project Setup
+## Getting Started
 
-```sh
-npm install
-```
+Follow these steps to get the project up and running on your local machine:
 
-### Compile and Hot-Reload for Development
+1. **Clone the Repository:**
 
-```sh
-npm run dev
-```
+   ```bash
+   git clone https://github.com/imtiaz0307/Vue-Js-Todo-App
+   cd vue-todo-app
 
-### Compile and Minify for Production
+2. **Install Dependencies:**
 
-```sh
-npm run build
-```
+    ```bash
+    npm install
 
-### Lint with [ESLint](https://eslint.org/)
+3. **Run the Development Server:**
 
-```sh
-npm run lint
-```
+    ```bash
+    npm run dev
+
+4. **Explore the App:**
+The app will be accessible at http://localhost:5173 by default.
