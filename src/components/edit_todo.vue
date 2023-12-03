@@ -3,7 +3,7 @@ import { ref, defineProps } from "vue";
 import "./styles/modal.css"
 import X from "../assets/icons/x_mark.vue";
 
-let { todo, todos, isOpen, toggle } = defineProps(["todo", "todos", "isOpen", "toggle"])
+let { todo, todos, isOpen, toggle, index } = defineProps(["todo", "todos", "isOpen", "toggle", "index"])
 
 const title = ref(todo.title)
 const date = ref(todo.deadline.slice(0, 10).split("-").reverse().join("-"))
@@ -11,14 +11,14 @@ const time = ref(todo.deadline.slice(14, 19))
 const priority = ref(todo.priority)
 
 const updateHandler = () => {
+    if (!title.value || !date.value || !time.value || !priority.value) return;
     const _todos = [...todos]
-    const currentTodo = _todos.splice(todo.id - 1, 1)[0]
+    const currentTodo = _todos.splice(index, 1)[0]
     currentTodo.priority = priority.value;
     currentTodo.title = title.value;
     currentTodo.deadline = `${date.value.toString().split("-").reverse().join("-")} at ${time.value}PM`;
 
-    console.log(currentTodo)
-    _todos.splice(todo.id - 1, 0, currentTodo)
+    _todos.splice(index, 0, currentTodo)
 
     todos = _todos
     localStorage.setItem("todos", JSON.stringify(todos))

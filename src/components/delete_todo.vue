@@ -3,15 +3,13 @@ import { defineProps } from "vue";
 import "./styles/modal.css"
 import X from "../assets/icons/x_mark.vue";
 
-let { todo, todos, isOpen, toggle } = defineProps(["todo", "todos", "isOpen", "toggle"])
+let { todo, todos, isOpen, toggle, index } = defineProps(["todo", "todos", "isOpen", "toggle", "index"])
 
 const deleteHandler = () => {
-    const _todos = [...todos]
-    const filtered = _todos.filter(item => item.id !== todo.id)
-    todos.value = filtered.filter(item => item !== null);
-    localStorage.setItem("todos", JSON.stringify(todos))
-
-    toggle()
+    todos.splice(index, 1);
+    todos = [...todos];
+    localStorage.setItem("todos", JSON.stringify(todos));
+    toggle();
 }
 
 </script>

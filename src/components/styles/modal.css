@@ -4,7 +4,7 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(255, 255, 255, 0.205);
+    background-color: var(--color-modal-overlay);
     backdrop-filter: blur(2px);
     z-index: 10;
     display: flex;
@@ -22,8 +22,8 @@
 }
 
 .modal_dialog {
-    background: #fff;
-    box-shadow: 0 0 10px #e9e9e9;
+    background: var(--color-bg);
+    box-shadow: 0 0 10px var(--box-shadow-color);
     border-radius: 20px;
     max-width: 600px;
     width: 95%;
@@ -46,11 +46,16 @@
     justify-content: space-between;
     gap: 1rem;
     align-items: center;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid var(--box-shadow-color);
+    color: var(--color-text);
 }
 
 .modal_body {
     padding: 20px 24px;
+}
+
+.modal_body>p {
+    color: var(--color-text);
 }
 
 .input_container {
@@ -78,19 +83,21 @@
 .input_container input,
 .input_container select {
     padding: 10px 16px;
-    border: 1px solid #e9e9e9;
+    border: 1px solid var(--box-shadow-color);
     border-radius: 5px;
     outline: none;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     width: 100%;
 }
 
 .input_container input::placeholder {
-    color: #afafaf;
+    color: var(--color-secondary);
 }
 
 .modal_footer {
     padding: 20px 24px;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid var(--box-shadow-color);
     display: flex;
     justify-content: flex-end;
     gap: 1rem;

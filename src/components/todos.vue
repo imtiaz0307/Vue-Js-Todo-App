@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import "./styles/todos.css"
 import Todoitem from './todoitem.vue';
 import AddTodo from './add_todo.vue';
@@ -8,26 +8,7 @@ let id = 1
 
 const priorities = ref(["HIGH", "MEDIUM", "LOW"])
 
-const todos = ref([
-    {
-        id: id++,
-        title: "Go To Gym",
-        deadline: "12-12-2023 at 03:00PM",
-        priority: priorities.value[0]
-    },
-    {
-        id: id++,
-        title: "Parhle Bhai",
-        deadline: "12-12-2023 at 03:00PM",
-        priority: priorities.value[1]
-    },
-    {
-        id: id++,
-        title: "Code in Vue JS",
-        deadline: "12-12-2023 at 03:00PM",
-        priority: priorities.value[2]
-    },
-])
+const { todos } = reactive({ todos: JSON.parse(localStorage.getItem("todos")) ?? [] })
 
 const showAddModal = ref(false)
 const toggleAddModal = () => showAddModal.value = !showAddModal.value
@@ -42,7 +23,9 @@ const toggleAddModal = () => showAddModal.value = !showAddModal.value
             <button @click="toggleAddModal">Add New</button>
         </div>
         <div class="card_body">
-            <Todoitem v-for="todo in todos" :key="todo.id" :todo="todo" :priorities="priorities" :todos="todos" />
+            <Todoitem v-if="todos.length > 0" v-for="(todo, index) in todos" :key="todo.id" :todo="todo"
+                :priorities="priorities" :todos="todos" :index="index" />
+            <div v-else class="empty_todos">No Todos To Show.</div>
         </div>
     </div>
 </template>

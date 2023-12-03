@@ -11,6 +11,7 @@ const time = ref("")
 const priority = ref("")
 
 const AddTodoHandler = () => {
+    if (!title.value || !date.value || !time.value || !priority.value) return;
     const todo = {
         id: todos?.length + 1 ?? 1,
         title: title.value,
